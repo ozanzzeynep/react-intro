@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-const Todo =() =>{
+function Todo () {
 
     const [todo, setTodo] = useState('');
     const [todoList,setTodolist] = useState([]);
 
-    const handleChange = (event) =>{
+    const onChange = (event) =>{
             setTodo(event.target.value);
     }
 
@@ -20,7 +20,7 @@ const Todo =() =>{
     return (
 
         <div className="center">
-            <input type="text" id="todo" name="todo" onChange={handleChange} value={todo}></input>
+            <input type="text" id="todo" name="todo" onChange={onChange} value={todo}></input>
             <button onClick={handleAdd} type="button">Ekle</button>
 
             <ul>
