@@ -17,16 +17,19 @@ function Todo () {
             setTodo('') 
         }
     }
+    const remove = (activity) => {
+        let newList = todoList.filter(todo => todo !== activity);
+        setTodolist(newList);
+        
+    }
     return (
 
         <div className="center">
-            <input type="text" id="todo" name="todo" onChange={onChange} value={todo}></input>
+            <input value={todo} onChange={onChange} ></input>
             <button onClick={handleAdd} type="button">Ekle</button>
 
             <ul>
-                {todoList.map((data,index) => (
-                    <li key = {index}>{data}</li>
-                ))}
+                {todoList.map(todo => <li key = {todo}>{todo} <button onClick= {()=> {remove(todo);}}>X</button></li>)}
             </ul>
         </div>
     );
