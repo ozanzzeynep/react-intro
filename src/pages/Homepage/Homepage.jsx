@@ -10,17 +10,46 @@ export default function Homepage() {
         });
     };
     useEffect(() => {
-        myAsyncFunction()
-        .then(response => {
-            console.log("İşlem başarılı cevap : " ,response);
-        })
-        .catch(error => {
-            console.log("İşlem başarısız cevap : ",error);
-        })
-        .finally(()=> {
-            console.log("İşlem bitti.")
-        });
+       makeAsyncCall();
+       makeHttpCall();
+       makeHttpCall2();
     },[]);
+
+    const makeHttpCall = () => {
+        fetch("https://dummyjson.com/products")
+        .then(response => response.json())
+        .then(json => console.log(json))
+        .catch(err => console.log(err));
+
+    };
+
+
+    const makeHttpCall2 = async () => {
+        let response = await fetch ("https://dummyjson.com/products");
+        let json = await response.json();
+        console.log(json);
+    }
+
+    const makeAsyncCall = async () => {
+        //myAsyncFunction()
+        //.then(response => {
+        //    console.log("İşlem başarılı cevap : " ,response);
+        //})
+        //.catch(error => {
+        //    console.log("İşlem başarısız cevap : ",error);
+        //})
+        //.finally(()=> {
+        //    console.log("İşlem bitti.")
+        //});
+        try{
+            let response = await myAsyncFunction();
+            console.log(response);
+
+        }catch(e){
+            console.log(e);
+        }
+        
+    }
 
   return (
     <div>
