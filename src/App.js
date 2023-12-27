@@ -1,40 +1,18 @@
-import { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-import Todo from "./Todo";
+
+import Homepage from "./pages/Homepage/Homepage";
+import About from "./pages/About/About";
 
 function App() {
-  //let totalCount = 0;
-
-  const [total, setTotal] = useState(0);
-
-  const increase = () => {
-    setTotal((prevState) => {
-      return prevState + 1;
-    });
-    console.log(total);
-  };
-  const decrease = () => {
-    setTotal(total - 1);
-    console.log(total);
-  };
-  useEffect(() => {
-    console.log("use effect çalıştı");
-  }, [total]);
-
   return (
-    <>
-      {/*<p>Toplam Tıklama Sayısı : {total}</p>
-      <button
-        onClick={() => {
-          increase();
-        }}
-      >
-        +
-      </button>
-      <button onClick={decrease}>-</button>*/}
-      <Todo/>
-
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Homepage/>}></Route>
+        <Route path="/about" element={<About/>}></Route>
+        <Route path="*" element = {<p>Not Found</p>}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
