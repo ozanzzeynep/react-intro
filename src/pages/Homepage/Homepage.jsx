@@ -16,7 +16,7 @@ export default function Homepage() {
   return (
     <div className="container mt-5">
       <div className="row">
-        {products.map(product => (
+        {products.map((product) => (
           <div key = {product.id} className="col-md-3 col-12 mb-5">
             <ProductCard product = {product} />
           </div>
