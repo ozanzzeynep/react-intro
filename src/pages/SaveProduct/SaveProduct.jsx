@@ -28,7 +28,7 @@ export default function SaveProduct() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setProduct((prevProduct) => ({ ...prevProduct, [name]: value }));
+    setProduct((prod) => ({ ...prod, [name]: value }));
   };
 
   return (
