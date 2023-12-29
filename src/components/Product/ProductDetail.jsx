@@ -19,7 +19,6 @@ export default function ProductDetail() {
       console.log(e);
     }
   };
-
   return (
     <div className="container mt-5">
       <div className="row ">
