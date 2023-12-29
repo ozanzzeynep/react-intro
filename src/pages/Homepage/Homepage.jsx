@@ -9,16 +9,20 @@ export default function Homepage() {
   });
 
   const fetchProducts = async () => {
-    let response = await axios.get("https://dummyjson.com/products");
-    setProducts(response.data.products);
+    try {
+      let response = await axios.get("https://dummyjson.com/products");
+      setProducts(response.data.products);
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   return (
     <div className="container mt-5">
       <div className="row">
         {products.map((product) => (
-          <div key = {product.id} className="col-md-3 col-12 mb-5">
-            <ProductCard product = {product} />
+          <div key={product.id} className="col-md-3 col-12 mb-5">
+            <ProductCard product={product} />
           </div>
         ))}
       </div>

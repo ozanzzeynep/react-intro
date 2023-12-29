@@ -28,10 +28,7 @@ export default function SaveProduct() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setProduct((prevProduct) => ({
-      ...prevProduct,
-      [name]: value,
-    }));
+    setProduct((prevProduct) => ({ ...prevProduct, [name]: value }));
   };
 
   return (
@@ -86,7 +83,7 @@ export default function SaveProduct() {
               type="text"
               className="form-control"
               id="exampleInputPassword1"
-              name="price"
+              name=""
               value={product.price}
               onChange={handleChange}
             />
